@@ -435,6 +435,7 @@ li:first-child{
         font-size: 1em;
     }
 
+
     .cards {
         grid-template-columns: 1fr;
         gap: 3vh;
@@ -445,10 +446,29 @@ li:first-child{
     .card {
         width: 35vh;
         height: 45vh;  
+    }
 
+
+}
+@media  screen and (max-width: 516px){
+    .menu-bar {
+        padding: 1vh;
+    }
+
+   .tittle {
+        font-size: 1em;
+    }
+
+    ul a li {
+        padding: 1px;
+        font-size: 1em;;
+    }
+
+    a li::after{
+        height: 0.2em;
+        bottom: -0.2em;
     }
 }
-
 @media screen and (max-width: 460px){
     .heading {
         font-size: 1em;
@@ -464,13 +484,21 @@ li:first-child{
 }
 
 @media  screen and (max-width: 375px) {
-    .image-container {
-        width: 25vh;
-        height: 25vh;
-    }
 
     #home-content {
-        height: 60vh;
+        height: 70vh;
     }
-    
+
+    #home-content .center {
+        height: inherit;
+    }
+ 
+    .order-details {
+        font-size: 1em;
+    }
+
+    .footer {
+        font-size: 1em;
+    }
+
 }
