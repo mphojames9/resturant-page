@@ -288,7 +288,6 @@ li:first-child{
 
 .contact-info h1 {
     padding: 30px;
-
 }
 
 .contact-info p {
@@ -303,7 +302,7 @@ li:first-child{
     margin: auto;
 }
 
-.map img {
+iframe {
     width:100%;
     height:100%;
 }
@@ -416,7 +415,7 @@ li:first-child{
         font-size: 1em;
     }
     
-    .map {
+    iframe {
     
         width: 100%;
         height: 60vh;
@@ -506,6 +505,20 @@ li:first-child{
 
     .card-footer {
         font-size: 0.8em;
+    }
+
+    .contact-info {
+        font-size: 0.8em;
+    }
+
+    .contact-info p {
+        padding: 5px;
+        font-size: 1em;
+    }
+
+    .contact-info h1 {
+        padding: 5px;
+        font-size: 1.3em;
     }
 
 }
