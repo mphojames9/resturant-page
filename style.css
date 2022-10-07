@@ -301,7 +301,6 @@ li:first-child{
     width: 60%;
     height: 84vh;
     margin: auto;
-
 }
 
 .map img {
@@ -499,6 +498,14 @@ li:first-child{
 
     .footer {
         font-size: 1em;
+    }
+
+    .cards .card h2 {
+        font-size: 1.3em;
+    }
+
+    .card-footer {
+        font-size: 0.8em;
     }
 
 }
