@@ -19,4 +19,4 @@ function show3(){
     homeSection.style.display = 'none';
     menuSection.style.display = 'none';
     contactSection.style.display = 'block';
-}
+
