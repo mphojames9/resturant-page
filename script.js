@@ -1,4 +1,4 @@
-//Elements
+//Element
 const homeSection = document.getElementById('home-content');
 const menuSection = document.getElementById('menu-content');
 const contactSection = document.getElementById('contact-content');
