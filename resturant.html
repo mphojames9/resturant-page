@@ -89,6 +89,17 @@ body {
   filter: drop-shadow(0 0 12px rgba(217,169,100,0.6));
 }
 
+.premium-nav {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+
+}
+
+a {
+  text-decoration: none;
+}
+
 .premium-nav a {
   position: relative;
   color: #bbb;
@@ -101,7 +112,7 @@ body {
 .premium-nav a::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 10%;
   bottom: -8px;
   width: 0%;
   height: 2px;
@@ -111,7 +122,7 @@ body {
 }
 
 .premium-nav a:hover::after {
-  width: 120%;
+  width: 20%;
 }
 
 .premium-nav a:hover {
@@ -122,7 +133,7 @@ body {
 .dropdown-menu {
   position: absolute;
   top: 140%;
-  left: 0;
+  left: 50px;
 
   display: flex;
   gap: 50px;
@@ -145,6 +156,12 @@ body {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
+}
+
+.dropdown-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 
 /* column hover animation */
@@ -174,6 +191,7 @@ body {
   height: 100%;
   background: linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
   transition: 0.6s;
+   isolation: isolate;
 }
 
 .btn:hover::before {
@@ -198,7 +216,7 @@ body {
 
   background: 
     linear-gradient(rgba(10,7,5,0.6), rgba(10,7,5,0.9)),
-    url('your-hero-image.jpg') center/cover no-repeat;
+    url('./assets/hero.png') center/cover no-repeat;
 }
 
 .hero-content {
@@ -535,17 +553,6 @@ body {
   }
 }
 
-#navbar::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-
-  background: radial-gradient(circle, rgba(217,169,100,0.08), transparent 60%);
-  animation: rotateGlow 20s linear infinite;
-}
 
 @keyframes rotateGlow {
   from { transform: rotate(0deg); }
@@ -820,6 +827,1615 @@ body {
   width: 100%;
   background: linear-gradient(90deg,transparent,#d9a964,transparent);
 }
+
+/* =========================
+   PREMIUM SERVICES UPGRADE
+========================= */
+
+.premium-services {
+  position: relative;
+  padding: 120px 80px;
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+}
+
+.section-header h2 {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 70px;
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(217,169,100,0.15);
+
+  transition: all 0.4s ease;
+}
+
+/* glowing border effect */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg,#d9a964,transparent,#d9a964);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* HOVER LIFT */
+.card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+}
+
+/* IMAGE */
+.card-img {
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* CONTENT */
+.card-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.card-content p {
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.card-btn {
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 768px) {
+
+  .premium-services {
+    padding: 70px 20px;
+  }
+
+  .section-header h2 {
+    font-size: 30px;
+  }
+
+  .cards {
+    gap: 25px;
+  }
+
+  .card-img img {
+    height: 200px;
+  }
+}
+
+/* =========================
+   PREMIUM PRICING UPGRADE
+========================= */
+
+.premium-pricing {
+  position: relative;
+  padding: 120px 80px;
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+}
+
+/* HEADER */
+.pricing-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.pricing-header h2 {
+  font-size: 42px;
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pricing-header p {
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: stretch;
+}
+
+/* =========================
+   FEATURED (LEFT SIDE)
+========================= */
+
+.featured-treatment {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.featured-treatment img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.featured-treatment:hover img {
+  transform: scale(1.08);
+}
+
+/* dark luxury overlay */
+.featured-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 40px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.3),
+    transparent
+  );
+}
+
+/* glass panel inside */
+.featured-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg,#d9a96433,transparent,#d9a96433);
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.featured-treatment:hover .featured-overlay::before {
+  opacity: 1;
+}
+
+.featured-overlay h3 {
+  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.featured-overlay p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.featured-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.price {
+  font-size: 22px;
+  color: #d9a964;
+  font-weight: bold;
+}
+
+/* =========================
+   LIST (RIGHT SIDE)
+========================= */
+
+.pricing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CARD STYLE ITEMS */
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 25px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  transition: 0.3s;
+}
+
+/* hover glow */
+.pricing-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(217,169,100,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* highlight item */
+.pricing-item.highlight {
+  border: 1px solid rgba(217,169,100,0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(217,169,100,0.1),
+    rgba(255,255,255,0.02)
+  );
+}
+
+.pricing-item h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 5px;
+}
+
+.pricing-item p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.price-box span {
+  color: #d9a964;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-treatment {
+    height: 400px;
+  }
+}
+
+@media(max-width: 768px) {
+  .premium-pricing {
+    padding: 70px 20px;
+  }
+
+  .pricing-header h2 {
+    font-size: 30px;
+  }
+
+  .featured-overlay {
+    padding: 25px;
+  }
+
+  .pricing-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .price-box {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =========================
+   PREMIUM EXPERIENCE SECTION
+========================= */
+
+.experience-section {
+  position: relative;
+  padding: 120px 80px;
+  text-align: center;
+
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+  overflow: hidden;
+}
+
+/* subtle animated glow */
+.experience-section::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+
+  background: radial-gradient(circle, rgba(217,169,100,0.08), transparent 60%);
+  animation: rotateGlow 40s linear infinite;
+}
+
+/* HEADER */
+.experience-header h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
+
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+.experience-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 40px;
+  z-index: 2;
+}
+
+/* ITEM CARD */
+.experience-item {
+  position: relative;
+  padding: 40px 25px;
+  border-radius: 25px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* glowing border */
+.experience-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg,#d9a964,transparent,#d9a964);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.experience-item:hover::before {
+  opacity: 1;
+}
+
+/* hover lift */
+.experience-item:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+/* ICON */
+.experience-item i {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #d9a964;
+
+  display: inline-block;
+  transition: 0.4s;
+}
+
+/* icon animation */
+.experience-item:hover i {
+  transform: scale(1.2) rotate(6deg);
+  text-shadow: 0 0 15px rgba(217,169,100,0.7);
+}
+
+/* TEXT */
+.experience-item h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.experience-item p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 768px) {
+
+  .experience-section {
+    padding: 70px 20px;
+  }
+
+  .experience-header h2 {
+    font-size: 30px;
+  }
+
+  .experience-grid {
+    gap: 25px;
+  }
+
+  .experience-item {
+    padding: 30px 20px;
+  }
+}
+
+/* =========================
+   PREMIUM CTA UPGRADE
+========================= */
+
+.premium-cta {
+  position: relative;
+  padding: 140px 80px;
+  text-align: center;
+  overflow: hidden;
+
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+}
+
+/* animated gold glow background */
+.cta-bg-glow {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+
+  background: radial-gradient(circle, rgba(217,169,100,0.15), transparent 60%);
+  animation: rotateGlow 35s linear infinite;
+}
+
+/* GLASS CONTAINER */
+.cta-container {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+  padding: 60px 50px;
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(217,169,100,0.15);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+
+  z-index: 2;
+}
+
+/* glowing border */
+.cta-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  padding: 1px;
+
+  background: linear-gradient(135deg,#d9a964,transparent,#d9a964);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* TAG */
+.cta-tag {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 16px;
+  border-radius: 30px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #d9a964;
+
+  border: 1px solid rgba(217,169,100,0.3);
+  background: rgba(217,169,100,0.08);
+}
+
+/* TITLE */
+.premium-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  margin-bottom: 15px;
+
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-highlight {
+  display: block;
+  font-size: 18px;
+  color: #d9a964;
+  margin-top: 8px;
+}
+
+/* TEXT */
+.premium-cta p {
+  color: #bbb;
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+
+/* BUTTONS */
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+/* META (trust indicators) */
+.cta-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.cta-meta i {
+  color: #d9a964;
+  margin-right: 6px;
+}
+
+/* hover animation boost */
+.cta-container:hover {
+  transform: translateY(-5px);
+  transition: 0.4s;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width: 768px) {
+
+  .premium-cta {
+    padding: 80px 20px;
+  }
+
+  .cta-container {
+    padding: 40px 25px;
+  }
+
+  .premium-cta h2 {
+    font-size: 30px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .cta-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* =========================
+   FIXED SPACING SYSTEM
+========================= */
+
+.premium-footer-grid {
+  position: relative;
+
+  max-width: 1200px;          /* 🔥 keeps content centered */
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+
+  column-gap: 50px;           /* horizontal spacing */
+  row-gap: 50px;              /* vertical spacing */
+
+  padding: 20px 10px;            /* internal breathing room */
+}
+
+/* =========================
+   COLUMN ALIGNMENT FIX
+========================= */
+
+.footer-brand,
+.footer-links,
+.footer-contact,
+.footer-newsletter {
+  display: flex;
+  flex-direction: column;
+}
+
+/* consistent spacing between items inside each column */
+.footer-brand > * + *,
+.footer-links > * + *,
+.footer-contact > * + *,
+.footer-newsletter > * + * {
+  margin-top: 16px;
+}
+
+/* =========================
+   TYPOGRAPHY SPACING
+========================= */
+
+.footer-links h4,
+.footer-contact h4,
+.footer-newsletter h4 {
+  margin-bottom: 10px;   /* tighter heading spacing */
+}
+
+.footer-links ul {
+  margin-top: 5px;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   BRAND FIX
+========================= */
+
+.footer-logo {
+  margin-bottom: 10px;
+}
+
+.footer-desc {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* =========================
+   CONTACT FIX
+========================= */
+
+.footer-contact p {
+  margin: 0;              /* remove uneven spacing */
+  line-height: 1.6;
+}
+
+/* =========================
+   NEWSLETTER FIX
+========================= */
+
+.footer-newsletter p {
+  margin-bottom: 10px;
+}
+
+.newsletter-box {
+  margin-top: 5px;
+}
+
+/* =========================
+   SOCIAL FIX
+========================= */
+
+.footer-socials {
+  margin-top: 10px;
+}
+
+/* =========================
+   RESPONSIVE FIX (IMPORTANT)
+========================= */
+
+@media (max-width: 992px) {
+  .premium-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-contact,
+  .footer-newsletter {
+    align-items: center;
+  }
+
+  .footer-desc {
+    max-width: 300px;
+  }
+
+  .footer-contact p {
+    justify-content: center;
+  }
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 20px;
+  transition: 0.4s;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(217,169,100,0.5));
+}
+
+.footer-desc {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 280px;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.footer-links h4,
+.footer-contact h4,
+.footer-newsletter h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #aaa;
+  font-size: 14px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* premium underline animation */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(90deg,#d9a964,#fff);
+  transition: 0.3s;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.footer-contact p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact i {
+  color: #d9a964;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.footer-newsletter p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.newsletter-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255,255,255,0.03);
+  padding: 6px;
+  border-radius: 40px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.newsletter-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 15px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.newsletter-box input:focus {
+  outline: none;
+}
+
+.newsletter-box button {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+}
+
+/* glow on focus */
+.newsletter-box:focus-within {
+  border-color: #d9a964;
+  box-shadow: 0 0 15px rgba(217,169,100,0.3);
+}
+
+/* =========================
+   SOCIALS (UPGRADED)
+========================= */
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  font-size: 16px;
+
+  color: #d9a964;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(217,169,100,0.2);
+
+  transition: 0.4s;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-6px) scale(1.1);
+  color: #fff;
+
+  box-shadow: 0 15px 40px rgba(217,169,100,0.5);
+}
+
+/* =========================
+   RESPONSIVE (IMPORTANT)
+========================= */
+
+@media (max-width: 992px) {
+  .premium-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-desc {
+    margin: 0 auto 20px;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-contact p {
+    justify-content: center;
+  }
+
+  .newsletter-box {
+    flex-direction: row;
+  }
+}
+
+/* =========================
+   LUXURY MOMENTS SECTION
+========================= */
+
+.luxury-moments {
+  position: relative;
+  padding: 120px 80px;
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+  overflow: hidden;
+}
+
+/* subtle animated glow */
+.luxury-moments::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+
+  background: radial-gradient(circle, rgba(217,169,100,0.08), transparent 60%);
+  animation: rotateGlow 40s linear infinite;
+}
+
+/* header */
+.section-sub {
+  text-align: center;
+  color: #aaa;
+  margin-top: -40px;
+  margin-bottom: 60px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.moments-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 25px;
+  z-index: 2;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.moment-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+
+  transition: 0.4s;
+}
+
+/* glowing border */
+.moment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg,#d9a964,transparent,#d9a964);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.moment-card:hover::before {
+  opacity: 1;
+}
+
+.moment-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* images */
+.moment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.moment-card:hover img {
+  transform: scale(1.1);
+}
+
+/* large card */
+.moment-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* overlay */
+.moment-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.moment-overlay h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =========================
+   REVIEW CARD
+========================= */
+
+.moment-card.review {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.review-content i {
+  color: #d9a964;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.review-content p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.review-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-user .name {
+  font-weight: 500;
+}
+
+.stars i {
+  color: #d9a964;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 992px) {
+  .moments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .moment-card.large {
+    grid-column: span 2;
+  }
+}
+
+@media(max-width: 600px) {
+  .luxury-moments {
+    padding: 70px 20px;
+  }
+
+  .moments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moment-card.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* =========================
+   SIGNATURE EXPERIENCE
+========================= */
+
+.signature-experience {
+  position: relative;
+  padding: 120px 80px;
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+  overflow: hidden;
+}
+
+/* ambient glow */
+.signature-experience::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+
+  background: radial-gradient(circle, rgba(217,169,100,0.08), transparent 60%);
+  animation: rotateGlow 45s linear infinite;
+}
+
+/* LAYOUT */
+.experience-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  z-index: 2;
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.experience-tag {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  font-size: 12px;
+  color: #d9a964;
+
+  border: 1px solid rgba(217,169,100,0.3);
+}
+
+.experience-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-desc {
+  color: #aaa;
+  margin-bottom: 35px;
+  max-width: 500px;
+}
+
+/* STEPS */
+.experience-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.step {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.step-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  color: #d9a964;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(217,169,100,0.2);
+
+  flex-shrink: 0;
+}
+
+.step h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 5px;
+}
+
+.step p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* =========================
+   RIGHT VISUAL
+========================= */
+
+.experience-visual {
+  position: relative;
+}
+
+/* stacked images */
+.image-stack {
+  position: relative;
+}
+
+.img-main {
+  width: 100%;
+  border-radius: 25px;
+  display: block;
+}
+
+.img-float {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  width: 60%;
+  border-radius: 20px;
+
+  border: 4px solid #0f0b08;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+/* badge */
+.experience-badge {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+
+  padding: 12px 18px;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg,#d9a964,#b98a4c);
+  color: #000;
+  font-weight: bold;
+
+  box-shadow: 0 10px 30px rgba(217,169,100,0.5);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 992px) {
+  .experience-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .img-float {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    margin-top: 20px;
+  }
+
+  .experience-badge {
+    left: 10px;
+  }
+}
+
+@media(max-width: 768px) {
+  .signature-experience {
+    padding: 70px 20px;
+  }
+
+  .experience-content h2 {
+    font-size: 30px;
+  }
+}
+
+/* =========================
+   PREMIUM FLOATING BADGE
+========================= */
+
+.experience-badge {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+  border-radius: 40px;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+  color: #fff;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(217,169,100,0.3);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* GOLD ICON */
+.experience-badge i {
+  color: #d9a964;
+  font-size: 14px;
+
+  text-shadow: 0 0 10px rgba(217,169,100,0.6);
+}
+
+/* TEXT */
+.experience-badge span {
+  color: #ddd;
+}
+
+/* SHIMMER EFFECT */
+.experience-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  transition: 0.6s;
+}
+
+.experience-badge:hover::before {
+  left: 120%;
+}
+
+/* SOFT GLOW PULSE */
+@keyframes badgeGlow {
+  0% { box-shadow: 0 10px 30px rgba(217,169,100,0.2); }
+  50% { box-shadow: 0 20px 60px rgba(217,169,100,0.4); }
+  100% { box-shadow: 0 10px 30px rgba(217,169,100,0.2); }
+}
+
+.experience-badge {
+  animation: badgeGlow 4s infinite ease-in-out;
+}
+
+/* HOVER LIFT */
+.experience-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media(max-width: 768px) {
+  .experience-badge {
+    left: 10px;
+    top: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   VIP DINING SECTION
+========================= */
+
+.vip-dining {
+  padding: 120px 80px;
+  background: radial-gradient(circle at top, #1a120b, #0f0b08);
+}
+
+/* GRID */
+.vip-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.vip-image {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.vip-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.vip-image:hover img {
+  transform: scale(1.08);
+}
+
+/* overlay badge */
+.vip-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  padding: 8px 16px;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg,#d9a964,#b98a4c);
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.vip-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #d9a964;
+  font-size: 12px;
+}
+
+.vip-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 15px;
+
+  background: linear-gradient(90deg,#fff,#d9a964);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vip-content p {
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+/* FEATURES */
+.vip-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.vip-features div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.vip-features i {
+  color: #d9a964;
+}
+
+/* BUTTONS */
+.vip-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 992px) {
+  .vip-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media(max-width: 768px) {
+  .vip-dining {
+    padding: 70px 20px;
+  }
+
+  .vip-content h2 {
+    font-size: 30px;
+  }
+
+  .vip-features {
+    grid-template-columns: 1fr;
+  }
+
+  .vip-actions {
+    flex-direction: column;
+  }
+}
 </style>
 
 <body>
@@ -833,7 +2449,7 @@ body {
     <div class="nav-item"><a href="#" class="active">Home</a></div>
 
     <div class="nav-item dropdown">
-      <a href="#">Menu <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#">Menu <i class="fa-solid fa-chevron-down" > </i></a>
 
       <div class="dropdown-menu mega">
         <div class="dropdown-column">
@@ -865,8 +2481,8 @@ body {
   </nav>
 
   <div class="nav-buttons">
-<a href="#" class="btn-outline">View Menu</a>
-<a href="#" class="btn btn-gold">Book Table</a>
+<button class="btn btn-liquid">View Menu</button>
+<button class="btn btn-gold">Book Table</button>
   </div>
 
   <div class="menu-toggle" id="menuToggle">
@@ -891,8 +2507,8 @@ body {
     <p>Fine dining crafted with passion, precision, and premium ingredients.</p>
 
     <div class="hero-buttons">
-<a class="btn btn-insane">Reserve Table</a>
-<a class="btn btn-glow">Explore Menu</a>
+<button class="btn btn-insane">Reserve Table</button>
+<button class="btn btn-glow">Explore Menu</button>
     </div>
   </div>
 </section>
@@ -913,7 +2529,7 @@ body {
       <div class="card-content">
         <h3>Grilled Steak</h3>
         <p>Juicy, tender steak served with rich sauce and sides.</p>
-        <a class="card-btn btn btn-liquid">Order Now</a>
+        <button class="card-btn btn btn-liquid">Order Now</button>
       </div>
     </div>
 
@@ -924,7 +2540,7 @@ body {
       <div class="card-content">
         <h3>Seafood Pasta</h3>
         <p>Fresh seafood tossed in creamy garlic sauce.</p>
-        <a class="card-btn btn btn-liquid">Order Now</a>
+        <button class="card-btn btn btn-liquid">Order Now</button>
       </div>
     </div>
 
@@ -935,7 +2551,7 @@ body {
       <div class="card-content">
         <h3>Chocolate Dessert</h3>
         <p>Rich, smooth chocolate indulgence.</p>
-        <a href="#" class="card-btn">Order Now</a>
+        <button class="card-btn btn btn-gold">Order Now</button>
       </div>
     </div>
 
@@ -1007,6 +2623,129 @@ body {
   </div>
 </section>
 
+<section class="signature-experience">
+
+  <div class="experience-wrapper">
+
+    <!-- LEFT CONTENT -->
+    <div class="experience-content">
+
+      <span class="experience-tag">Our Signature</span>
+
+      <h2>
+        A Journey of Taste, Crafted to Perfection
+      </h2>
+
+      <p class="experience-desc">
+        From the moment you arrive to the final bite, every detail is designed 
+        to deliver a seamless and unforgettable fine dining experience.
+      </p>
+
+      <div class="experience-steps">
+
+        <div class="step">
+          <div class="step-icon"><i class="fa-solid fa-door-open"></i></div>
+          <div>
+            <h4>Warm استقبال</h4>
+            <p>Greeted with elegance and personalized service.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon"><i class="fa-solid fa-utensils"></i></div>
+          <div>
+            <h4>Curated Menu</h4>
+            <p>Seasonal dishes crafted by our master chefs.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon"><i class="fa-solid fa-wine-glass"></i></div>
+          <div>
+            <h4>Wine Pairing</h4>
+            <p>Perfectly paired selections to elevate every course.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <h4>Memorable Finish</h4>
+            <p>An experience that stays with you long after you leave.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn-insane">Start Your Experience</button>
+
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="experience-visual">
+
+      <div class="image-stack">
+
+        <img src="./assets/exp1.jpg" class="img-main">
+        <img src="./assets/exp2.jpg" class="img-float">
+
+      </div>
+
+      <div class="experience-badge">
+  <i class="fa-solid fa-star"></i>
+  <span>5.0 Rating</span>
+</div>
+
+    </div>
+
+  </div>
+
+  <section class="vip-dining">
+
+  <div class="vip-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="vip-image">
+      <img src="./assets/private-dining.jpg" alt="Private Dining">
+
+      <div class="vip-overlay">
+        <span>Exclusive</span>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="vip-content">
+
+      <span class="vip-tag">Private Experience</span>
+
+      <h2>
+        Private Dining & VIP Events
+      </h2>
+
+      <p>
+        Host unforgettable moments in an intimate setting designed for elegance, 
+        privacy, and world-class service.
+      </p>
+
+      <div class="vip-features">
+        <div><i class="fa-solid fa-check"></i> Personalized Menu</div>
+        <div><i class="fa-solid fa-check"></i> Dedicated Chef</div>
+        <div><i class="fa-solid fa-check"></i> Luxury Atmosphere</div>
+        <div><i class="fa-solid fa-check"></i> Priority Booking</div>
+      </div>
+
+      <div class="vip-actions">
+        <button class="btn btn-insane">Book Private Dining</button>
+        <button class="btn btn-glow">Learn More</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</section>
 <!-- EXPERIENCE -->
 <section class="experience-section">
 
@@ -1045,71 +2784,155 @@ body {
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section premium-cta">
+  <div class="cta-bg-glow"></div>
+
   <div class="cta-container">
-    <h2>Reserve Your Table Tonight</h2>
-    <p>Experience fine dining like never before.</p>
+
+    <span class="cta-tag">Luxury Experience</span>
+
+    <h2>
+      Reserve Your Table Tonight
+      <span class="cta-highlight">— Limited Availability</span>
+    </h2>
+
+    <p>
+      Step into an atmosphere of elegance, where every detail is crafted for a
+      world-class dining experience.
+    </p>
 
     <div class="cta-actions">
-      <a class="btn btn-liquid">View Menu</a>
-<a class="btn btn-insane">Book Table</a>
+      <button class="btn btn-liquid">
+        <i class="fa-solid fa-book-open"></i> View Menu
+      </button>
+
+      <button class="btn btn-insane">
+        <i class="fa-solid fa-calendar-check"></i> Book Table
+      </button>
     </div>
+
+    <!-- subtle trust indicators -->
+    <div class="cta-meta">
+      <div><i class="fa-solid fa-star"></i> 5.0 Rating</div>
+      <div><i class="fa-solid fa-users"></i> 10,000+ Guests</div>
+      <div><i class="fa-solid fa-clock"></i> Open Tonight</div>
+    </div>
+
   </div>
 </section>
 
-<footer class="premium-footer gold-theme">
+<section class="luxury-moments">
 
-  <div class="footer-container">
+  <div class="section-header">
+    <h2>Moments of Elegance</h2>
+    <p class="section-sub">
+      Every visit is an experience crafted to perfection
+    </p>
+  </div>
 
-    <!-- BRAND -->
-    <div class="footer-brand">
-      <img src="./assets/logo.png">
-      <p>Luxury dining crafted for unforgettable experiences.</p>
+  <div class="moments-grid">
 
-      <!-- SOCIAL -->
-      <div class="footer-socials">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <!-- IMAGE 1 -->
+    <div class="moment-card large">
+      <img src="./assets/restaurant1.jpg">
+      <div class="moment-overlay">
+        <h3>Fine Dining Atmosphere</h3>
       </div>
     </div>
 
-    <!-- LINKS -->
-    <div class="footer-links">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Reservations</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+    <!-- IMAGE 2 -->
+    <div class="moment-card">
+      <img src="./assets/restaurant2.jpg">
     </div>
 
-    <!-- CONTACT -->
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>Johannesburg</p>
-      <p>+27 12 345 6789</p>
-    </div>
+    <!-- REVIEW -->
+    <div class="moment-card review">
+      <div class="review-content">
+        <i class="fa-solid fa-quote-left"></i>
+        <p>
+          One of the best dining experiences in Johannesburg. 
+          The ambiance, the service, everything is world-class.
+        </p>
 
-    <!-- NEWSLETTER (NEW 🔥) -->
-    <div class="footer-newsletter">
-      <h4>Stay Updated</h4>
-      <p>Get exclusive offers & chef specials.</p>
-
-      <div class="newsletter-box">
-        <input type="email" placeholder="Enter your email">
-        <button class="btn btn-insane">Subscribe</button>
+        <div class="review-user">
+          <span class="name">Sarah M.</span>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="moment-card">
+      <img src="./assets/restaurant3.jpg">
+    </div>
+
+    <!-- IMAGE 4 -->
+    <div class="moment-card">
+      <img src="./assets/restaurant4.jpg">
     </div>
 
   </div>
 
-  <div class="footer-bottom">
-    © 2026 Luxury Restaurant
+</section>
+
+<div class="footer-container premium-footer-grid">
+
+  <!-- BRAND -->
+  <div class="footer-brand">
+    <img src="./assets/logo.png" class="footer-logo">
+
+    <p class="footer-desc">
+      Luxury dining crafted for unforgettable experiences. Where taste meets elegance.
+    </p>
+
+    <div class="footer-socials">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    </div>
   </div>
 
-</footer>
+  <!-- LINKS -->
+  <div class="footer-links">
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Reservations</a></li>
+      <li><a href="#">Private Dining</a></li>
+      <li><a href="#">Events</a></li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="footer-contact">
+    <h4>Contact</h4>
+
+    <p><i class="fa-solid fa-location-dot"></i> Johannesburg, SA</p>
+    <p><i class="fa-solid fa-phone"></i> +27 12 345 6789</p>
+    <p><i class="fa-solid fa-envelope"></i> reservations@luxury.com</p>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="footer-newsletter">
+    <h4>Stay Updated</h4>
+    <p>Get exclusive offers & chef specials.</p>
+
+    <div class="newsletter-box">
+      <input type="email" placeholder="Enter your email">
+      <button class="btn btn-insane">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
 
 <script>
 window.addEventListener("scroll", () => {
